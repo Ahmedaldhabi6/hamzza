@@ -1,0 +1,352 @@
+﻿<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+  <head>
+    <meta charset="UTF-8">
+    <title>Test Element Actions</title>
+    <!-- Latest compiled and minified CSS for Bootstrap -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
+<!-- Include html2canvas and jsPDF libraries -->
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <style>
+      #test {
+       width: 1180px;
+height: 500px;
+max-width: 1180px;
+max-height: 500px;
+overflow: scroll;
+scrollbar-width: none;
+      }
+
+      body {
+        margin: 0;
+      }
+
+      #electric {
+        font-family: 'Arial', sans-serif;
+        direction: rtl;
+        text-align: right;
+      }
+
+      table {
+        border-collapse: collapse;
+        border: black 5px double;
+        font-weight: 600;
+        line-height: 1.9;
+        font-size: 16px;
+        width: 100%;
+      }
+
+      th,td {
+        border: 1px solid #ddd;
+        padding: 3px;
+        border-right-width: 3px;
+        border-right-style: double;
+        border-bottom-style: double;
+        border-bottom-width: 3px;
+        border: black 3px double;
+      }
+
+      input {
+        font-weight: 700;
+		border:none;
+		padding: 10px 10px;
+      }
+	  .disflx {
+	  display: flex;
+	  }
+	  .r8 {
+	  width: 33%;
+	  text-align: right;
+	  }
+	  .mid {
+	  width: 33%; 
+	  text-align: center;
+	  }
+	  .lft {
+	  width: 33%;
+	  text-align: end;
+	  }
+	  .brn {
+	  border:none;
+	  }
+	  .frntinp{
+	  
+	  }
+	  .two{
+	  margin: auto auto;
+	  
+	  }
+	  .splthdr{
+	  margin: 0px auto;
+	  
+	  
+	  }
+	  .scndline {
+	  width: 65%;
+	  }
+	  .p5{
+	  padding:5px;
+	  }
+	  .notes{
+	  padding: 10px 5px;
+margin: 0px;
+display: flex;
+width: 100%;
+letter-spacing: 0em;
+font-weight: 550;
+font-size: 17px;
+	  
+	  }
+
+	  span#unitprice{
+	  margin: 0px 5px;
+	  }
+	  .unitprice{
+	   padding: 0px 10px;
+	  width: 60px;
+	  }
+	  .issuedate{
+	  
+	display: inline flow-root list-item;
+	  padding: 0px 10px;
+		width: 60%;
+		
+	  }
+	  button{
+	  width: 100%px;
+	  display:block;
+	  height:75px;
+	  
+	  }
+	  .bgc-ch{
+	  background-color: chartreuse;
+	  }
+	  /* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+    </style>
+  </head>
+  <body>
+  
+  <div id="input" class="p5">
+ 
+  
+  
+  
+</div>
+  
+  
+  
+  <!-- start of electricitybill div -->
+    <div id="test"  class="p5">
+      <div id="electric">
+	  <div class="disflx">
+		<div class="r8" >
+		<table class="brn">
+          <tr class="brn">
+            <td class="brn">
+			اسم المشترك:
+			</td>
+            <td class="brn">
+			<input id="cname" type="text" class="frntinp brn" value="احمد الضبي">
+			</td>
+			</tr>
+		</table>
+		</div>
+		<div class="mid">
+		    <h1 id='billtypetitle'>فاتورة مياة</h1>
+			<p>تاريخ الإصدار: <span id="issuedate"><input type="date" class="form-control issuedate" id="dateInput" placeholder="Select date"></span></p>
+		</div>
+		<div class="lft">
+		 <h2>عمارة عبدالغني محرم</h2>
+		</div>
+	  </div>
+        
+        <table id='elec'>
+          <tr>
+            <td>
+              <div class="two">
+                <p class="splthdr">القراءة السابقة</p>
+                <input id='oldread' type="number" class="scndline brn" value="0">
+              </div>
+            </td>
+            <td>الاستهلاك وحدة</td>
+			<td>قيمة المياة</td>
+            <td>رسوم نظافة</td>
+           
+            <td>المتأخرات</td>
+            <td>المبلغ المستحق</td>
+            
+          </tr>
+          <tr>
+            <td>
+              <div class="two">
+                <p class="splthdr">القراءة الحالية</p>
+                 <input id='newread' type="number" class="scndline brn" value="0">
+              </div>
+            </td>
+            <td>
+              <input id='used' type="number" class="scndline brn" value="0">
+            </td>                                                                                                                                                                                                                                              
+            <td>                                                                                                                                                                                                                                               
+              <input id='usedcost' type="number" class="scndline brn" value="0">
+            </td>                                                                                                                                                                                                                                             
+            <td>                                                                                                                                                                                                                                              
+              <input id='extra' type="number" class="scndline brn" value="4000">
+            </td>                                                                                                                                                                                                                                              
+            
+            <td>                                                                                                                                                                                                                                              
+              <input id='late' type="number" class="scndline brn" value="0">
+            </td>                                                                                                                                                                                                                                            
+            <td>                                                                                                                                                                                                                                               
+              <input id='total' type="number" class="scndline brn" value="0">
+            </td>
+          </tr>
+        </table>
+        <p class="notes">تنبيهات هامة</p>
+        <p class="notes">تعرفة الوحدة الماء <span id="unitprice"><input id='eunitprice' type="number" class="brn unitprice" value="1300"></span> ريال</p>
+        <p class="notes">التسديد اولاً يجنبك فصل الخدمة وفي حال الفصل تدفع غرامة 2000 ريال رسوم اعادة تيار</p>
+        <p class="notes">يجب تسديد الفاتورة خلال مدة لاتتجاوز اليومين وفي حال التأخير سوف نضطر اسفين لفصل الخدمة</p>
+      </div>
+    </div>
+	
+	<div class="row w-100">
+	<!-- <button onclick="printElement()">Print Element</button>
+    <button onclick="saveAsPDF()">Save as PDF</button>
+	<!-- New div with class 'row' and 100% width -- >
+  <div class="row w-100 bgc-ch">
+    <div class="form-check form-switch">
+      <input class="form-check-input" type="checkbox" id="landscapeCheckbox">
+      <label class="form-check-label" for="landscapeCheckbox">jsPDF Landscape</label>
+    </div>
+  </div> -->
+    <button onclick="downloadScreenshot()">Download Screenshot</button>
+	
+	</div>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.bundle.min.js"></script>
+	<!-- end of electricitybill div -->
+    
+    <script>
+	var pagenewname = '';
+      var electricitybill = document.querySelector('#test');
+
+      function printElement() {
+
+        var printWindow = window.open('', '_blank');
+        var content = electricitybill.outerHTML;
+       var css = '<style type="text/css">' + document.querySelector("style").innerHTML +
+              '#test { width: auto; height: auto; max-width: 100%; max-height: 100%; }' +
+              'body { margin: 0; }' +
+              '</style>';
+      printWindow.document.write('<html><head><title>' + pagenewname + '</title>' + css + '</head><body>');
+    printWindow.document.write(content);
+    printWindow.document.write('</body></html>');
+    printWindow.document.close();
+    printWindow.onload = function() {
+      printWindow.focus(); // Necessary for IE
+      printWindow.print();
+      printWindow.close();
+    };
+  }
+
+// Modified saveAsPDF function
+function saveAsPDF() {
+ 
+  const { jsPDF } = window.jspdf;
+  html2canvas(document.querySelector('#test')).then(canvas => {
+    var imgData = canvas.toDataURL('image/png');
+    // Check if the landscape checkbox is checked
+    var orientation = document.querySelector('#landscapeCheckbox').checked ? 'landscape' : 'portrait';
+    var pdf = new jsPDF({
+      orientation: orientation,
+      unit: 'px',
+      format: [canvas.width, canvas.height]
+    });
+    pdf.addImage(imgData, 'PNG', 0, 0);
+    pdf.save(pagenewname + ".pdf");
+  });
+}
+
+  function downloadScreenshot() {
+   pageName();
+    html2canvas(electricitybill).then(canvas => {
+      var link = document.createElement('a');
+      link.download = pagenewname + '.png';
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+    });
+  }
+  
+  // Update value attribute for inputs
+document.querySelectorAll('input').forEach(input => {
+  input.addEventListener('input', (event) => {
+    event.target.setAttribute('value', event.target.value);
+	pageName();
+	performCalculations();
+  });
+});
+
+// Update value attribute for the date input
+//document.querySelector('input.issuedate').addEventListener('change', (event) => {
+//  event.target.setAttribute('value', event.target.value);
+//});
+  
+  function pageName() {
+    var billtype = document.querySelector("#billtypetitle").innerText;
+    var pname = document.querySelector("#cname").value;
+    var idate = document.querySelector("#issuedate input").value;
+  document.title = billtype + ' ' + pname + ' ' + idate;
+  pagenewname = billtype + ' ' + pname + ' ' + idate;
+  }
+  
+  //function autocal() {
+  //  var unitprice = document.querySelector("#eunitprice").value;
+  //  var oldread = document.querySelector("#oldread").value;
+  //  var newread = document.querySelector("#newread").value;
+  //  var used = document.querySelector("#used").value;
+  //  var usedcost = document.querySelector("#usedcost").value;
+  //  var extra = document.querySelector("#extra").value;
+  //  var subs = document.querySelector("#extra").value;
+  //  var late = document.querySelector("#late").value;
+  //  var total = document.querySelector("#total").value;
+	//
+	//document.querySelector("#used").value = newread - oldread;
+	//document.querySelector("#usedcost").value = used * unitprice;
+	//document.querySelector("#total").value = usedcost + extra + subs + late ;
+  //  
+  //}
+  
+  function performCalculations() {
+            var inp0 = document.getElementById('eunitprice').value;
+            var inp1 = document.getElementById('newread').value;
+            var inp2 = document.getElementById('oldread').value;
+            var inp4 = document.getElementById('usedcost').value;
+            
+            var inp6 = document.getElementById('late').value;
+
+            // Subtract inp2 from inp1 and update inp3
+            var result1 = inp1 - inp2;
+            document.getElementById('used').value = result1;
+
+            // Multiply inp3 value with inp0 value
+            var result2 = result1 * inp0;
+            document.getElementById('usedcost').value = result2;
+
+            // Add up inp4, inp5, inp6 and update inp7
+            var result3 = parseFloat(inp4) + parseFloat(inp6);
+            document.getElementById('total').value = result3;
+        }
+  
+  
+    </script>
+  </body>
+</html>
