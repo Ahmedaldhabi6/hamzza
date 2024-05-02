@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>Test Element Actions</title>
+  <!-- Latest compiled and minified CSS for Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
+  <style>
+    /* Set the background to snow white */
+    body {
+      background-color: #FFFAFA; /* Snow white color */
+      margin: 0; /* Remove default margin */
+    }
+
+    /* Make div#min take up the full viewport */
+    #min {
+      height: 100vh; /* 100% of the viewport height */
+      width: 100vw; /* 100% of the viewport width */
+      display: flex;
+      justify-content: center; /* Center horizontally */
+      align-items: center; /* Center vertically */
+      padding: 75px 0; /* Add padding to compensate for reduced margin */
+    }
+
+    /* Style the buttons */
+    button {
+      width: 150px;
+      height: 150px;
+      border: none;
+      color: #FFF;
+      font-size: 16px;
+      margin: 10px;
+      transition: transform 0.3s ease, margin 0.3s ease; /* Smooth transition for animation and margin */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Add glowing blue stroke for button 1 */
+    #b1 {
+      box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+      background-color: #007BFF; /* Bootstrap blue */
+    }
+
+    /* Add glowing red stroke for button 2 */
+    #b2 {
+      box-shadow: 0 0 10px rgba(220, 53, 69, 0.5);
+      background-color: #DC3545; /* Bootstrap red */
+    }
+
+    /* Enlarge button to 1.5 times its size on mouse over and adjust margins */
+    button:hover {
+      transform: scale(1.5);
+      margin: 0; /* Reduce margin to 0 to push other elements */
+    }
+  </style>
+</head>
+<body>
+
+<div id="min">
+  <button id="b1" onclick="goto('water')">ماء</button>
+  <button id="b2" onclick="goto('electriciy')">كهرباء</button>
+</div>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  function goto(x) {
+    if (x == 'water') {
+      document.location = './wtr/';
+    } else if (x == 'electriciy') {
+      document.location = './kahrba/';
+    }
+  }
+</script>
+
+</body>
+</html>
