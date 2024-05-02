@@ -330,7 +330,7 @@ document.querySelectorAll('input').forEach(input => {
             var inp1 = document.getElementById('newread').value;
             var inp2 = document.getElementById('oldread').value;
             var inp4 = document.getElementById('usedcost').value;
-            
+            var inp5 = document.getElementById('extra').value;
             var inp6 = document.getElementById('late').value;
 
             // Subtract inp2 from inp1 and update inp3
@@ -342,7 +342,7 @@ document.querySelectorAll('input').forEach(input => {
             document.getElementById('usedcost').value = result2;
 
             // Add up inp4, inp5, inp6 and update inp7
-            var result3 = parseFloat(inp4) + parseFloat(inp6);
+            var result3 = parseFloat(inp4) + parseFloat(inp6)+ parseFloat(inp5);
             document.getElementById('total').value = result3;
         }
   
